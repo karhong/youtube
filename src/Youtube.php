@@ -263,6 +263,8 @@ class Youtube
         $status = new \Google_Service_YouTube_VideoStatus();
         $status->privacyStatus = $privacyStatus;
 
+        if (array_key_exists('embeddable', $data)) $status->setEmbeddable($data['embeddable']);
+
         // Set the Snippet & Status
         $video = new \Google_Service_YouTube_Video();
         if ($id)
